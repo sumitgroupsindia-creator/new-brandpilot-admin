@@ -5,6 +5,8 @@ import { fileURLToPath, URL } from 'node:url';
 const DEV_API_TARGET = process.env.DEV_API_TARGET ?? 'http://localhost:3000';
 
 export default defineConfig({
+  // .env lives at the repo root, not in this app folder.
+  envDir: fileURLToPath(new URL('../../', import.meta.url)),
   plugins: [react()],
   resolve: {
     alias: {
