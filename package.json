@@ -20,12 +20,6 @@
     "test": "turbo run test",
     "admin:dev": "pnpm --filter @brandpilot/admin dev"
   },
-  "pnpm": {
-    "overrides": {
-      "baseline-browser-mapping": "2.11.14",
-      "electron-to-chromium": "1.5.408"
-    }
-  },
   "devDependencies": {
     "@turbo/gen": "^2.3.3",
     "prettier": "^3.4.2",
@@ -35,7 +29,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "9.x",
+      "version": "11.x",
       "onFail": "warn"
     }
   }
