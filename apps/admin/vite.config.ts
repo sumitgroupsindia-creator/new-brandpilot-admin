@@ -11,7 +11,9 @@ export default defineConfig({
       '@brandpilot/shared': fileURLToPath(new URL('../../packages/shared/src/index.ts', import.meta.url)),
     },
   },
-  base: '/admin/',
+  // Served at the root of its own domain (e.g. panel.example.com).
+  // Change to '/admin/' if you ever host it under a sub-path.
+  base: '/',
   server: {
     port: 5174,
     proxy: {
