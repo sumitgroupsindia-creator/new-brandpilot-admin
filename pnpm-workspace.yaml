@@ -3,6 +3,10 @@ packages:
   - 'packages/*'
 
 # pnpm blocks dependency build scripts by default. These need theirs:
-# esbuild downloads its platform binary, prisma/argon2 compile natives.
+# esbuild downloads its platform binary; prisma/argon2 compile natives.
+# `allowBuilds` is the pnpm 11 name; `onlyBuiltDependencies` is kept for pnpm 10.
+allowBuilds:
+  'esbuild': true
+
 onlyBuiltDependencies:
   - 'esbuild'

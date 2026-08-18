@@ -30,10 +30,5 @@
       "name": "pnpm",
       "onFail": "warn"
     }
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
   }
 }
