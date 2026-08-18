@@ -12,7 +12,7 @@
   "packageManager": "pnpm@11.22.0",
   "scripts": {
     "fix:bins": "node scripts/fix-native-bins.mjs",
-    "build": "node scripts/fix-native-bins.mjs && turbo run build",
+    "build": "node scripts/fix-native-bins.mjs && ./node_modules/.bin/tsc -p packages/shared/tsconfig.json && cd apps/admin && ./node_modules/.bin/tsc && ./node_modules/.bin/vite build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
