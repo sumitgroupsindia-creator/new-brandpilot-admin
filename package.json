@@ -11,7 +11,7 @@
   },
   "scripts": {
     "fix:bins": "node scripts/fix-native-bins.mjs",
-    "build": "pnpm run fix:bins && turbo run build",
+    "build": "node scripts/fix-native-bins.mjs && turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
