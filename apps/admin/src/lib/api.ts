@@ -1,10 +1,11 @@
 import axios from 'axios';
+import { API_BASE_URL, apiUrl } from './apiBase';
 import { showGlobalDialog, showGlobalToast } from '@brandpilot/shared';
 
 const DEFAULT_TENANT_SLUG = import.meta.env.VITE_TENANT_SLUG ?? 'default';
 
 export const adminApi = axios.create({
-  baseURL: '/api',
+  baseURL: API_BASE_URL,
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
@@ -40,7 +41,7 @@ adminApi.interceptors.response.use(
           try {
             adminRefreshRequest ??= axios
               .post<TokenPairResponse>(
-                '/api/auth/refresh',
+                apiUrl('/auth/refresh'),
                 { refreshToken: storedRefreshToken },
                 { headers: { 'Content-Type': 'application/json', 'x-tenant-slug': DEFAULT_TENANT_SLUG } },
               )
