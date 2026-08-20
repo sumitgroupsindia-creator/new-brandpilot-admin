@@ -20,13 +20,16 @@ interface AppSidebarProps {
 export function AppSidebar({ links, open = false, onNavigate, themeMode, onThemeModeChange }: AppSidebarProps) {
   return (
     <>
-      <aside className="hidden h-[calc(100vh-92px)] rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface-1)] p-3 shadow-[var(--shadow-xs)] md:sticky md:top-[78px] md:z-[70] md:block">
+      {/* The layout shell already pins this column to the viewport, so the
+          sidebar just fills its grid cell — no sticky offset, no magic
+          calc() height that has to be kept in sync with the header. */}
+      <aside className="hidden h-full min-h-0 flex-col overflow-y-auto rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface-1)] p-3 shadow-[var(--shadow-xs)] md:flex">
         <SidebarContent links={links} onNavigate={onNavigate} themeMode={themeMode} onThemeModeChange={onThemeModeChange} />
       </aside>
 
       {open ? (
-        <div className="fixed inset-0 z-[var(--z-modal)] bg-[rgba(9,12,18,0.45)] p-4 md:hidden" onClick={onNavigate}>
-          <aside className="h-full w-[84%] max-w-[320px] rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface-1)] p-3 shadow-[var(--shadow-lg)]" onClick={event => event.stopPropagation()}>
+        <div className="fixed inset-0 z-[var(--z-drawer)] bg-[rgba(9,12,18,0.45)] p-4 md:hidden" role="dialog" aria-modal="true" aria-label="Navigation" onClick={onNavigate}>
+          <aside className="flex h-full w-[84%] max-w-[320px] flex-col overflow-y-auto rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface-1)] p-3 shadow-[var(--shadow-lg)]" onClick={event => event.stopPropagation()}>
             <SidebarContent links={links} onNavigate={onNavigate} themeMode={themeMode} onThemeModeChange={onThemeModeChange} />
           </aside>
         </div>

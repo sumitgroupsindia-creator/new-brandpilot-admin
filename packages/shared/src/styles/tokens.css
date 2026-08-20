@@ -1,0 +1,56 @@
+/* Design tokens shared by every BrandPilot front-end app.
+ *
+ * The components in this package reference these by name, so any app that
+ * renders them MUST import this file or those components lose their colors,
+ * radii, shadows and stacking order. Import it once, before your own :root
+ * block, and override individual tokens after it if an app needs to differ.
+ */
+
+:root {
+
+	--color-ink: #0d1524;
+	--color-ink-muted: #334155;
+	--color-ink-subtle: #64748b;
+	--color-surface-1: #ffffff;
+	--color-surface-2: #f3f6fb;
+	--color-surface-3: #e8edf4;
+	--color-border: #dce3ee;
+	--color-border-strong: #b6c2d5;
+	--color-brand-50: #ecfeff;
+	--color-brand-300: #67e8f9;
+	--color-brand-500: #0891b2;
+	--color-brand-600: #0f766e;
+	--color-brand-700: #115e59;
+	--color-ai-50: #eff6ff;
+	--color-ai-200: #bfdbfe;
+	--color-ai-700: #1d4ed8;
+	--color-success-50: #ecfdf5;
+	--color-success-200: #bbf7d0;
+	--color-success-700: #047857;
+	--color-warning-50: #fffbeb;
+	--color-warning-200: #fde68a;
+	--color-warning-700: #a16207;
+	--color-danger-50: #fef2f2;
+	--color-danger-200: #fecaca;
+	--color-danger-400: #f87171;
+	--color-danger-600: #dc2626;
+	--color-danger-700: #b91c1c;
+
+	--radius-sm: 10px;
+	--radius-md: 14px;
+	--radius-lg: 18px;
+	--radius-xl: 26px;
+
+	--shadow-xs: 0 2px 8px rgba(15, 23, 42, 0.05);
+	--shadow-sm: 0 8px 20px rgba(15, 23, 42, 0.08);
+	--shadow-md: 0 18px 36px rgba(15, 23, 42, 0.12);
+	--shadow-lg: 0 34px 70px rgba(9, 12, 18, 0.24);
+
+	/* Single ordered stacking scale. Every layered surface must use one of
+	   these tokens — never a bare z-[n] — so the order stays provable. */
+	--z-sticky: 20;   /* app header + desktop sidebar */
+	--z-drawer: 40;   /* mobile nav drawer */
+	--z-modal: 60;    /* Modal overlay */
+	--z-toast: 80;    /* transient toasts */
+	--z-dialog: 90;   /* blocking confirm dialog */
+}

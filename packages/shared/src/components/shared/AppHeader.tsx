@@ -16,7 +16,7 @@ export function AppHeader({ appName, userName, onToggleNav, onLogout }: AppHeade
   const userEmail = userName.includes('@') ? userName : `${userName.toLowerCase().replace(/\s+/g, '')}@gmail.com`;
 
   return (
-    <header className="sticky top-0 z-[70] border-b border-[var(--color-border)] bg-white/92 backdrop-blur-xl">
+    <header className="sticky top-0 z-[var(--z-sticky)] border-b border-[var(--color-border)] bg-white/92 backdrop-blur-xl">
       <div className="mx-auto grid max-w-[1480px] grid-cols-[minmax(210px,248px)_1fr_auto] items-center gap-3 px-3 py-3 sm:px-4 lg:px-5 xl:gap-4">
         <div className="flex items-center gap-2 sm:gap-3">
           <Button className="md:hidden" variant="ghost" size="sm" onClick={onToggleNav} aria-label="Open navigation">
@@ -41,9 +41,9 @@ export function AppHeader({ appName, userName, onToggleNav, onLogout }: AppHeade
           <button
             type="button"
             aria-label="Notifications"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface-1)] text-[var(--color-ink-muted)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-surface-2)] hover:text-[var(--color-ink)]"
+            className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface-1)] text-[var(--color-ink-muted)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-surface-2)] hover:text-[var(--color-ink)]"
           >
-            <span className="absolute mt-[-16px] ml-[14px] inline-flex h-2.5 w-2.5 rounded-full bg-[#ff7a18]" />
+            <span className="absolute right-2.5 top-2.5 inline-flex h-2.5 w-2.5 rounded-full bg-[#ff7a18] ring-2 ring-[var(--color-surface-1)]" />
             <svg viewBox="0 0 20 20" className="h-[18px] w-[18px] stroke-current" fill="none" strokeWidth="1.8">
               <path d="M10 3.5a3 3 0 0 0-3 3v1.1c0 .6-.2 1.19-.58 1.67L5.2 10.9A1.3 1.3 0 0 0 6.22 13h7.56a1.3 1.3 0 0 0 1.02-2.1l-1.22-1.63A2.7 2.7 0 0 1 13 7.6V6.5a3 3 0 0 0-3-3Z" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M8.5 15a1.75 1.75 0 0 0 3 0" strokeLinecap="round" />

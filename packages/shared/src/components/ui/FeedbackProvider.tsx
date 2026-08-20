@@ -111,7 +111,7 @@ export function FeedbackProvider({ children }: PropsWithChildren) {
     >
       {children}
 
-      <div className="pointer-events-none fixed right-4 top-4 z-[80] flex w-full max-w-[380px] flex-col gap-3">
+      <div className="pointer-events-none fixed right-4 top-4 z-[var(--z-toast)] flex w-full max-w-[380px] flex-col gap-3">
         {toasts.map(toast => (
           <div
             key={toast.id}
@@ -143,7 +143,7 @@ export function FeedbackProvider({ children }: PropsWithChildren) {
       </div>
 
       {dialog ? (
-        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-[rgba(9,12,18,0.58)] p-4 backdrop-blur-sm" onClick={() => setDialog(null)}>
+        <div className="fixed inset-0 z-[var(--z-dialog)] flex items-center justify-center bg-[rgba(9,12,18,0.58)] p-4 backdrop-blur-sm" onClick={() => setDialog(null)}>
           <div
             className="w-full max-w-[520px] rounded-[30px] border border-white/50 bg-[linear-gradient(180deg,rgba(255,255,255,0.97)_0%,rgba(244,247,252,0.96)_100%)] p-5 shadow-[0_40px_100px_rgba(15,23,42,0.28)]"
             role="alertdialog"
