@@ -111,7 +111,7 @@ export function FeedbackProvider({ children }: PropsWithChildren) {
     >
       {children}
 
-      <div className="pointer-events-none fixed right-4 top-4 z-[var(--z-toast)] flex w-full max-w-[380px] flex-col gap-3">
+      <div className="pointer-events-none fixed inset-x-4 top-4 z-[var(--z-toast)] ml-auto flex w-auto max-w-[380px] flex-col gap-3">
         {toasts.map(toast => (
           <div
             key={toast.id}
